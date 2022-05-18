@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keypress Event</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(242, 43, 43) 10%, rgb(58, 58, 241) 50%, rgb(40, 229, 40) 100%);
+            color: white;
+        }
+
+        #myCanvas {
+            background-color: white;
+            border: 10px double black;
+            border-radius: 10px;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Keypress Event</h1>
+        <canvas id="myCanvas" height="600" width="900"></canvas>
+        <h4 id="text"></h4>
+        <p><b><u>Note</u></b>: Kindly press any keyboard key...</p>
+    </center>
+
+    <script>
+        canvas = document.getElementById('myCanvas');
+        ctx = canvas.getContext('2d');
+        window.addEventListener('keydown', keydown);
+        function keydown(e) {
+            keyPressed = e.keyCode;
+            if ((keyPressed >= 65 && keyPressed <= 90) || (keyPressed >= 97 && keyPressed <= 122)) {
+                document.getElementById('text').innerHTML = 'It is an Alphabet!';
+                alphabet();
+            }else if (keyPressed >= 48 && keyPressed <= 57) {
+                document.getElementById('text').innerHTML = 'It is a Number!';
+                number();
+            }else if (keyPressed >= 37 && keyPressed <= 40) {
+                document.getElementById('text').innerHTML = 'It is an Arrow!';
+                arrow();
+            }else if ((keyPressed = 17) || (keyPressed = 18) || (keyPressed = 27)){
+                document.getElementById('text').innerHTML = 'It is a Special Key!';
+                special();
+            } else {
+                document.getElementById('text').innerHTML = 'It is another key!';
+                another();
+            }
+        }
+        function alphabet() {
+            alphabetIMG = '96195514-colorful-blur-alphabets-letters-from-a-to-z-word-cloud-for-education-or-learning-conceptual-for-desi.webp';
+            imgAlpha = new Image();
+            imgAlpha.onload = uploadAlphabet;
+            imgAlpha.src = alphabetIMG;
+            function uploadAlphabet() {
+                ctx.drawImage(imgAlpha, 0, 0, canvas.width, canvas.height);
+            }
+        }
+        function number(){
+            alphabetIMG = 'flat-lay-wooden-colorful-numbers-background-top-view-abstraction-multicolor-zero-to-nine-texture-mathematic-topic-back-189696087.jpeg';
+            imgAlpha = new Image();
+            imgAlpha.onload = uploadAlphabet;
+            imgAlpha.src = alphabetIMG;
+            function uploadAlphabet() {
+                ctx.drawImage(imgAlpha, 0, 0, canvas.width, canvas.height);
+            }
+        }
+        function arrow(){
+            alphabetIMG = 'istockphoto-1353289101-170667a.jpeg';
+            imgAlpha = new Image();
+            imgAlpha.onload = uploadAlphabet;
+            imgAlpha.src = alphabetIMG;
+            function uploadAlphabet() {
+                ctx.drawImage(imgAlpha, 0, 0, canvas.width, canvas.height);
+            }
+        }
+        function special(){
+            alphabetIMG = '360_F_420527138_2h45aeZBJO1A4YPSoZLw3Js5QFF1nG8g.jpeg';
+            imgAlpha = new Image();
+            imgAlpha.onload = uploadAlphabet;
+            imgAlpha.src = alphabetIMG;
+            function uploadAlphabet() {
+                ctx.drawImage(imgAlpha, 0, 0, canvas.width, canvas.height);
+            }
+        }
+        function another(){
+            alphabetIMG = 'black-computer-keyboard-button-enter-close-up-modern-equipment-buttons-background-texture-black-computer-keyboard-button-enter-137808718.jpeg';
+            imgAlpha = new Image();
+            imgAlpha.onload = uploadAlphabet;
+            imgAlpha.src = alphabetIMG;
+            function uploadAlphabet() {
+                ctx.drawImage(imgAlpha, 0, 0, canvas.width, canvas.height);
+            }
+        }
+    </script>
+</body>
+
+</html>
